@@ -48,6 +48,12 @@ Console.WriteLine("This is table gui view is okay or not okay ");
 
 Console.WriteLine("Connection closing....");
 connection.Close();
+Console.WriteLine("git test and want to know it is workig or no");
+Console.WriteLine("git test and want to know it is workig or no");
+Console.WriteLine("git test and want to know it is workig or no");
+Console.WriteLine("git test and want to know it is workig or no");
+Console.WriteLine("git test and want to know it is workig or no");
+
 //when you using dataadapter just like you can borrow a book from libaray but you take a little not all
 //you can write this connection close upon or under you don't care
 //foreach(DataRow dr in dt.Rows)
