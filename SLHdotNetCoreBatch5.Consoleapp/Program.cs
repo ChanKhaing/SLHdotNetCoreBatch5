@@ -6,77 +6,32 @@
 
 
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
+//using Microsoft.Data.SqlClient;
+
 
 Console.WriteLine("Hello world i am testing C# with query");
 
 // Fixed CS1001 and CS1002 by completing the SqlConnection declaration and adding a semicolon
-string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //this is mostly used string you can reuse this 
 
-
-Console.WriteLine("Connection string : " + connectionString);
-//SqlConnection connection =new SqlConnection(connectionString);
+string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
 
 
 
+Console.WriteLine("Enter your BlogTitle");
+string BlogTitle = Console.ReadLine();
+Console.WriteLine(BlogTitle);
 
-//connection.Open();
-//Console.WriteLine("Connection opening.....");
-
-//string query = @"
-//SELECT [BlogId]
-//      ,[BlogTitle]
-//      ,[BlogAuthor]
-
-//      ,[BlogContent]
-//      ,[DeleteFlag]
-
-//  FROM [dbo].[Tbl_Blog]";
-
-//SqlCommand cmd = new SqlCommand(query,connection);
-////SqlDataAdapter adapter = new SqlDataAdapter(cmd); //what is this?
-////DataTable dt = new DataTable();
-////adapter.Fill(dt);
-
-////when you are using datareader like you are in libaray and you can read whatever you want no limit book but you can't take home
-////if you are using datareader you should take care connection don't lost but runtime fast 
-//SqlDataReader reader = cmd.ExecuteReader();
-//while(reader.Read())
-//{
-//    Console.WriteLine(reader["BlogId"]);
-//    Console.WriteLine(reader["BlogTitle"]);
-//    Console.WriteLine(reader["BlogAuthor"]);
-//    Console.WriteLine(reader["BlogContent"]);
-//}
-//Console.WriteLine("This is table gui view is okay or not okay ");
+Console.WriteLine("Enter your BlogAuthor");
+string BlogAuthor = Console.ReadLine();
+Console.WriteLine(BlogAuthor);
 
 
 
-
-
-//Console.WriteLine("Connection closing....");
-//connection.Close();
-
-//reopen
-//Console.WriteLine("git test and want to know it is workig or no");
-//Console.WriteLine("git test and want to know it is workig or no");
-//Console.WriteLine("git test and want to know it is workig or no");
-//Console.WriteLine("git test and want to know it is workig or no");
-//Console.WriteLine("git test and want to know it is workig or no");
-
-//when you using dataadapter just like you can borrow a book from libaray but you take a little not all
-//you can write this connection close upon or under you don't care
-//foreach(DataRow dr in dt.Rows)
-//{
-//    Console.WriteLine(dr["BlogId"]);
-//    Console.WriteLine(dr["BlogTitle"]);
-//    Console.WriteLine(dr["BlogAuthor"]);
-//    Console.WriteLine(dr["BlogContent"]);
-
-//}
-
-
-//when you are using dataadapter you can take home and read it at home but runtime is slow
+Console.WriteLine("Enter your BlogContent");
+string BlogContent = Console.ReadLine();
+Console.WriteLine(BlogContent);
 
 SqlConnection connection1 = new SqlConnection(connectionString);
 connection1.Open();
@@ -91,9 +46,10 @@ string query1 = @"INSERT INTO [dbo].[Tbl_Blog]
            @BlogContent
            ,0)";
 SqlCommand cmd1 = new SqlCommand(query1, connection1);
-cmd1.Parameters.AddWithValue("@BlogTitle", "New Blog Title");   
- cmd1.Parameters.AddWithValue("@BlogAuthor", "New Author");
-cmd1.Parameters.AddWithValue("@BlogContent", "This is the content of the new blog post.");
+cmd1.Parameters.AddWithValue("@BlogTitle", BlogTitle);
+
+cmd1.Parameters.AddWithValue("@BlogAuthor", BlogAuthor);
+cmd1.Parameters.AddWithValue("@BlogContent", BlogContent);
 
 int result = cmd1.ExecuteNonQuery();
 connection1.Close();
@@ -109,4 +65,41 @@ else
 
 
 
-Console.ReadKey();
+//Console.ReadKey();
+
+
+
+
+
+
+
+
+
+
+//string query1 = @"INSERT INTO [dbo].[Tbl_Blog]
+//           ([BlogTitle]
+//           ,[BlogAuthor]
+//           ,[BlogContent]
+//           ,[DeleteFlag])
+//     VALUES
+//           (@blogTitle
+//           ,@blogAuthor
+//           ,@blogContent
+//           ,0)";
+
+
+//SqlCommand cmd1 =new SqlCommand(query1, connection);
+//cmd1.Parameters.AddWithValue("@blogTitle", BlogTitle);
+//cmd1.Parameters.AddWithValue("@blogAuthor", BlogAuthor);
+//cmd1.Parameters.AddWithValue("@blogContent", BlogContent);
+
+
+//int result = cmd1.ExecuteNonQuery();
+
+//Console.WriteLine(result == 1 ? "Saving successful" : "Saving Failed");
+
+
+
+
+
+
