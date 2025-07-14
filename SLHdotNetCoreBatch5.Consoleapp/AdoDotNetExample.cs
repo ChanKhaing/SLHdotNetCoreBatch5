@@ -156,7 +156,60 @@ namespace SLHdotNetCoreBatch5.Consoleapp
         }
 
 
+        public void update()
+        {
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
 
+            Console.WriteLine("Enter your BlogId ");
+            string id = Console.ReadLine();
+
+            //Console.WriteLine("your BlogId is " + id);
+
+
+            Console.WriteLine("Blog Title: ");
+            string title = Console.ReadLine();
+
+            Console.WriteLine("Blog Author: ");
+            string author = Console.ReadLine();
+
+            Console.WriteLine("Blog Content: ");
+            string content = Console.ReadLine();
+
+
+            string query = @"UPDATE [dbo].[Tbl_Blog]
+           SET[BlogTitle] = @blogTitle,
+           [BlogAuthor] = @blogAuthor,
+           [BlogContent] = @blogContent,
+           [DeleteFlag] = 0
+           WHERE BlogId = @blogid";
+
+
+
+
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            cmd.Parameters.AddWithValue("@BlogId", id);
+
+
+            cmd.Parameters.AddWithValue("@BlogTitle", title);
+            cmd.Parameters.AddWithValue("@BlogAuthor", author);
+            cmd.Parameters.AddWithValue("@BlogContent", content);
+
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
+            Console.WriteLine(result == 1 ? "Update successful" : "Saving Failed");
+
+
+
+
+
+
+
+
+        }
 
 
     }

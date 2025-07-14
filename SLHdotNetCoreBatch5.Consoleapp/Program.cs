@@ -33,39 +33,20 @@ string id = Console.ReadLine();
 //Console.WriteLine("your BlogId is " + id);
 
 
-Console.WriteLine("Blog Title: ");
-string title = Console.ReadLine();
 
-Console.WriteLine("Blog Author: ");
-string author = Console.ReadLine();
-
-Console.WriteLine("Blog Content: ");
-string content = Console.ReadLine();
-
-
-string query = @"UPDATE [dbo].[Tbl_Blog]
-SET[BlogTitle] = @blogTitle,
-       [BlogAuthor] = @blogAuthor,
-       [BlogContent] = @blogContent,
-       [DeleteFlag] = 0
+string query = @"DELETE FROM [dbo].[Tbl_Blog]
  WHERE BlogId = @blogid";
-
-
-
-
 
 SqlCommand cmd = new SqlCommand(query, connection);
 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 cmd.Parameters.AddWithValue("@BlogId", id);
 
 
-cmd.Parameters.AddWithValue("@BlogTitle", title);
-cmd.Parameters.AddWithValue("@BlogAuthor", author);
-cmd.Parameters.AddWithValue("@BlogContent", content);
+
 
 int result = cmd.ExecuteNonQuery();
 connection.Close();
-Console.WriteLine(result == 1 ? "Update successful" : "Saving Failed");
+Console.WriteLine(result == 1 ? "Delete Successful" : "no data found");
 //Error debug end *****8
 
 
