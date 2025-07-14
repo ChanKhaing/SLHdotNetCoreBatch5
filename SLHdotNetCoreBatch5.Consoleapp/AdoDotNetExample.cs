@@ -52,5 +52,97 @@ namespace SLHdotNetCoreBatch5.Consoleapp
                 }
 
 
+        public void create()
+        {
+
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+
+
+
+            Console.WriteLine("Enter your BlogTitle");
+            string BlogTitle = Console.ReadLine();
+            Console.WriteLine(BlogTitle);
+
+            Console.WriteLine("Enter your BlogAuthor");
+            string BlogAuthor = Console.ReadLine();
+            Console.WriteLine(BlogAuthor);
+
+
+
+            Console.WriteLine("Enter your BlogContent");
+            string BlogContent = Console.ReadLine();
+            Console.WriteLine(BlogContent);
+
+            SqlConnection connection1 = new SqlConnection(connectionString);
+            connection1.Open();
+            string query1 = @"INSERT INTO [dbo].[Tbl_Blog]
+           ([BlogTitle]
+           ,[BlogAuthor]
+           ,[BlogContent]
+           ,[DeleteFlag])
+     VALUES
+          ( @BlogTitle,
+           @BlogAuthor ,
+           @BlogContent
+           ,0)";
+            SqlCommand cmd1 = new SqlCommand(query1, connection1);
+            cmd1.Parameters.AddWithValue("@BlogTitle", BlogTitle);
+
+            cmd1.Parameters.AddWithValue("@BlogAuthor", BlogAuthor);
+            cmd1.Parameters.AddWithValue("@BlogContent", BlogContent);
+
+            int result = cmd1.ExecuteNonQuery();
+            connection1.Close();
+
+            Console.WriteLine(result == 1 ? "Saving successful" : "Saving Failed");
+        }
+
+
+        public void edit() 
+        {
+
+
+
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            Console.WriteLine("Enter your BlogId ");
+            string blogId = Console.ReadLine();
+            Console.WriteLine("your BlogId is " + blogId);
+
+
+            ////read data start*****
+
+            string query = @"SELECT [BlogId]
+      ,[BlogTitle]
+      ,[BlogAuthor]
+      ,[BlogContent]
+      ,[DeleteFlag]
+  FROM [dbo].[Tbl_Blog] where BlogId = @BlogId";
+
+
+
+
+
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            cmd.Parameters.AddWithValue("@BlogId", blogId);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            Console.WriteLine("Data read successfully. Number of rows: " + dt.Rows.Count);
+            Console.WriteLine("connection start to end ");
+            Console.WriteLine("Connection closing....");
+
+            connection.Close();
+
+
+
+
+
+        }
+
+
     }
 }
