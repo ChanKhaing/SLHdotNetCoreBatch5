@@ -131,6 +131,8 @@ namespace SLHdotNetCoreBatch5.Consoleapp
             cmd.Parameters.AddWithValue("@BlogId", blogId);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
+        
+            
             Console.WriteLine("Data read successfully. Number of rows: " + dt.Rows.Count);
             Console.WriteLine("connection start to end ");
             Console.WriteLine("Connection closing....");
@@ -138,11 +140,27 @@ namespace SLHdotNetCoreBatch5.Consoleapp
             connection.Close();
 
 
+            if (dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
 
+            
 
-
+            DataRow dr = dt.Rows[0];
+            Console.WriteLine(dr["BlogId"]);
+            Console.WriteLine(dr["BlogTitle"]);
+            Console.WriteLine(dr["BlogAuthor"]);
+            Console.WriteLine(dr["BlogContent"]);
         }
 
 
+
+
+
     }
-}
+
+
+    }
+
