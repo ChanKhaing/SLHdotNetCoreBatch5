@@ -15,90 +15,55 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 Console.WriteLine("Hello world i am testing C# with query");
 
-// Fixed CS1001 and CS1002 by completing the SqlConnection declaration and adding a semicolon
+
+//string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+
+//SqlConnection connection = new SqlConnection(connectionString);
+//connection.Open();
+
+////read data start*****
+//string query = @"SELECT [BlogId]
+//           ,[BlogTitle]
+//           ,[BlogAuthor]
+//           ,[BlogContent]
+//           ,[DeleteFlag]
+//           FROM [dbo].[Tbl_Blog]";
+
+//SqlCommand cmd = new SqlCommand(query, connection);
+////SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+////DataTable dt = new DataTable();
+////adapter.Fill(dt);
+////read data end******
 
 
+//////when you are using datareader like you are in libaray and you can read whatever you want no limit book but you can't take home
+//////if you are using datareader you should take care connection don't lost but runtime fast 
+//SqlDataReader reader = cmd.ExecuteReader();
+//while (reader.Read())
+//{
+//    Console.WriteLine(reader["BlogId"]);
+//    Console.WriteLine(reader["BlogTitle"]);
+//    Console.WriteLine(reader["BlogAuthor"]);
+//    Console.WriteLine(reader["BlogContent"]);
+//}
+////Console.WriteLine("This is table gui view is okay or not okay ");
 
 
-
-//error need to debug start
-
-string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
-SqlConnection connection = new SqlConnection(connectionString);
-connection.Open();
-
-Console.WriteLine("Enter your BlogId ");
-string id = Console.ReadLine();
-
-//Console.WriteLine("your BlogId is " + id);
-
-
-
-string query = @"DELETE FROM [dbo].[Tbl_Blog]
- WHERE BlogId = @blogid";
-
-SqlCommand cmd = new SqlCommand(query, connection);
-SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-cmd.Parameters.AddWithValue("@BlogId", id);
-
-
-
-
-int result = cmd.ExecuteNonQuery();
-connection.Close();
-Console.WriteLine(result == 1 ? "Delete Successful" : "no data found");
-//Error debug end *****8
-
-
-//DataTable dt = new DataTable();
-//adapter.Fill(dt);
-//Console.WriteLine("Data read successfully. Number of rows: " + dt.Rows.Count);
-//Console.WriteLine("connection start to end ");
 //Console.WriteLine("Connection closing....");
+//connection.Close();
 
 
 //AdoDotNetExample adodotnetExample = new AdoDotNetExample();
 //adodotnetExample.read();
 //adodotnetExample.create();
 //adodotnetExample.edit();
+DapperExample dapperExample = new DapperExample();
+//dapperExample.read();
+dapperExample.create("ddddd", "dddddd", "ddddf");
+Console.ReadKey();
 
-//Console.ReadKey();
 
 
-
-//Console.WriteLine("Blog Id: ");
-//string id = Console.ReadLine();
-
-//Console.WriteLine("Blog Title: ");
-//string title = Console.ReadLine();
-
-//Console.WriteLine("Blog Author: ");
-//string author = Console.ReadLine();
-
-//Console.WriteLine("Blog Content: ");
-//string content = Console.ReadLine();
-
-//SqlConnection connection = new SqlConnection(connectionString);
-//connection.Open();
-
-//string query = $@"UPDATE [dbo].[Tbl_Blog]
-//   SET [BlogTitle] = @BlogTitle
-//      ,[BlogAuthor] = @BlogAuthor
-//      ,[BlogContent] = @BlogContent
-//      ,[DeleteFlag] = 0
-// WHERE BlogId = @BlogId";
-
-//SqlCommand cmd = new SqlCommand(query, connection);
-//cmd.Parameters.AddWithValue("@BlogId", id);
-//cmd.Parameters.AddWithValue("@BlogTitle", title);
-//cmd.Parameters.AddWithValue("@BlogAuthor", author);
-//cmd.Parameters.AddWithValue("@BlogContent", content);
-
-//int result = cmd.ExecuteNonQuery();
-
-//connection.Close();
-
-//Console.WriteLine(result == 1 ? "Updating Successful." : "Updating Failed.");
 
 
 

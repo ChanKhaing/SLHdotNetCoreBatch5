@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 namespace SLHdotNetCoreBatch5.Consoleapp
 {
     public class AdoDotNetExample
-    {
-        public void read() 
-           {
+    {  //This is a private varaiable and it use in only and use for this method
+        //private readonly string _connectionString = "Data Source=.;Initial Catalog=DotNetTrainingBatch5;User ID=sa;Password=sasa@123;";
 
+
+        public void read()
+        {
 
             string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
@@ -27,22 +30,22 @@ namespace SLHdotNetCoreBatch5.Consoleapp
            FROM [dbo].[Tbl_Blog]";
 
             SqlCommand cmd = new SqlCommand(query, connection);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
             //read data end******
-           
+
 
             ////when you are using datareader like you are in libaray and you can read whatever you want no limit book but you can't take home
             ////if you are using datareader you should take care connection don't lost but runtime fast 
-            //SqlDataReader reader = cmd.ExecuteReader();
-            //while(reader.Read())
-            //{
-            //    Console.WriteLine(reader["BlogId"]);
-            //    Console.WriteLine(reader["BlogTitle"]);
-            //    Console.WriteLine(reader["BlogAuthor"]);
-            //    Console.WriteLine(reader["BlogContent"]);
-            //}
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["BlogId"]);
+                Console.WriteLine(reader["BlogTitle"]);
+                Console.WriteLine(reader["BlogAuthor"]);
+                Console.WriteLine(reader["BlogContent"]);
+            }
             //Console.WriteLine("This is table gui view is okay or not okay ");
 
 
@@ -211,6 +214,40 @@ namespace SLHdotNetCoreBatch5.Consoleapp
 
         }
 
+
+        public void delete()
+        {
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            Console.WriteLine("Enter your BlogId ");
+            string id = Console.ReadLine();
+
+            //Console.WriteLine("your BlogId is " + id);
+
+
+
+            string query = @"DELETE FROM [dbo].[Tbl_Blog]
+             WHERE BlogId = @blogid";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            cmd.Parameters.AddWithValue("@BlogId", id);
+
+
+
+
+            int result = cmd.ExecuteNonQuery();
+            connection.Close();
+            Console.WriteLine(result == 1 ? "Delete Successful" : "no data found");
+
+
+
+
+
+
+        }
 
     }
 
