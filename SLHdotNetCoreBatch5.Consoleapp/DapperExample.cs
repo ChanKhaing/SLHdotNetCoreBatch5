@@ -55,10 +55,14 @@ namespace SLHdotNetCoreBatch5.Consoleapp
            @BlogContent
            ,0)";
 
+            //if we are not using dto just like we are not using model class
+            //data transfer object we can use dynamic and it can be error on variable assign 
+
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                int result = db.Execute(query, BlogDataModel: new BlogDataModel()
+                int result = db.Execute(query, new BlogDataModel
                 {   
+                    //BlogTtle = title,
                     BlogTitle = title,
                     BlogAuthor = author,
                     BlogContent = content

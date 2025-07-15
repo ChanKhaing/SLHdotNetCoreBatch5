@@ -16,7 +16,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 Console.WriteLine("Hello world i am testing C# with query");
 
 
-//string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
+//string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; 
 
 //SqlConnection connection = new SqlConnection(connectionString);
 //connection.Open();
@@ -57,13 +57,16 @@ Console.WriteLine("Hello world i am testing C# with query");
 //adodotnetExample.read();
 //adodotnetExample.create();
 //adodotnetExample.edit();
-DapperExample dapperExample = new DapperExample();
+
+
+//DapperExample dapperExample = new DapperExample();
 //dapperExample.read();
-dapperExample.create("ddddd", "dddddd", "ddddf");
-Console.ReadKey();
+//dapperExample.create("ddddd", "dddddd", "ddddf");
+//Console.ReadKey();
 
 
-
+EfcoreExample efcoreExample = new EfcoreExample();
+efcoreExample.read();
 
 
 

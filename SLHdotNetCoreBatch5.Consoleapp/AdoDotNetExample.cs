@@ -14,6 +14,7 @@ namespace SLHdotNetCoreBatch5.Consoleapp
 
 
         public void read()
+
         {
 
             string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
