@@ -66,7 +66,9 @@ Console.WriteLine("Hello world i am testing C# with query");
 
 
 EfcoreExample efcoreExample = new EfcoreExample();
-efcoreExample.read();
+//efcoreExample.read();
+//efcoreExample.create("New Blog Title", "New Author", "This is the content of the new blog.");   
+efcoreExample.Edit(7); // Replace 1 with the actual BlogId you want to edit
 
 
 
