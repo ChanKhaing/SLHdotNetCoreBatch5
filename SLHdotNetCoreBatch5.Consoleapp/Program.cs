@@ -68,7 +68,17 @@ Console.WriteLine("Hello world i am testing C# with query");
 EfcoreExample efcoreExample = new EfcoreExample();
 //efcoreExample.read();
 //efcoreExample.create("New Blog Title", "New Author", "This is the content of the new blog.");   
-efcoreExample.Edit(7); // Replace 1 with the actual BlogId you want to edit
+//efcoreExample.Edit(7); // Replace 1 with the actual BlogId you want to edit
+//efcoreExample.Update(7, "Updated Blog Title", "Updated Author", "This is the updated content of the blog."); // Replace 1 with the actual BlogId you want to update
+//efcoreExample.softdelete(3); // Replace 1 with the actual BlogId you want to soft delete
+efcoreExample.delete(1007);
+
+
+
+
+
+Console.ReadKey();
+
 
 
 

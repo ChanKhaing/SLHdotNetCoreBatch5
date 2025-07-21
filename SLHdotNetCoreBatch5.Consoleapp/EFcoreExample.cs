@@ -1,4 +1,5 @@
-﻿using SLHdotNetCoreBatch5.Consoleapp.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SLHdotNetCoreBatch5.Consoleapp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,13 +50,15 @@ namespace SLHdotNetCoreBatch5.Consoleapp
 
         }
 
-
+        //The edit method is show one data why the reason is when you are using facebook to upload your post you are missing something .
+        //This time when you are not updated or fill something you will see first your uploaded post(original data with mistake).
+        //you don't see anything how can you uplodad(update) or edit you post.so you need to see first thing is your original post
         public void Edit(int id)
         {
         
             AppDbContext db = new AppDbContext();
             //var lst = db.Blogs.Where(x => x.BlogId == id).FirstOrDefault();
-            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            var item = db.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 Console.WriteLine("No data found.");
@@ -70,6 +73,122 @@ namespace SLHdotNetCoreBatch5.Consoleapp
 
 
         }
+
+        //public void Update(int id, string title, string author, string content)
+        //{
+        //    AppDbContext db = new AppDbContext();
+        //    var item = db.Blogs
+        //        .AsNoTracking()
+        //        .FirstOrDefault(x => x.BlogId == id);
+        //    if (item is null)
+        //    {
+        //        Console.WriteLine("No data found.");
+        //        return;
+        //    }
+
+        //    if (!string.IsNullOrEmpty(title))
+        //    {
+        //        item.BlogTitle = title;
+        //    }
+        //    if (!string.IsNullOrEmpty(author))
+        //    {
+        //        item.BlogAuthor = author;
+        //    }
+        //    if (!string.IsNullOrEmpty(content))
+        //    {
+        //        item.BlogContent = content;
+        //    }
+
+        //    //db.Blogs.Update(item);
+        //    //var result = db.SaveChanges();
+        //    //Console.WriteLine(result == 1 ? "Blog updated successfully." : "Failed to update blog.");
+
+        //    db.Entry(item).State = EntityState.Modified;
+        //    var result = db.SaveChanges();
+        //    Console.WriteLine(result == 1 ? "Updating Successful." : "Updating Failed.");
+        //}
+
+        public void Update(int id, string title, string author, string content)
+        {
+            AppDbContext db = new AppDbContext();
+            var item = db.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
+            if (!string.IsNullOrEmpty(title))
+            {
+                item.BlogTitle = title;
+            }
+
+            if (!string.IsNullOrEmpty(author))
+            {
+                item.BlogAuthor = author;
+            }
+
+            if (!string.IsNullOrEmpty(content))
+
+            {
+                item.BlogContent = content;
+            }
+            db.Entry(item).State = EntityState.Modified;
+            var result = db.SaveChanges();  
+            Console.WriteLine(result == 1 ? "Updating Successful." : "Updating Failed.");
+
+
+
+
+        }
+
+
+        public void softdelete(int id)
+        {
+            AppDbContext db = new AppDbContext();
+            var item = db.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
+            item.DeleteFlag = !item.DeleteFlag; // Toggle the DeleteFlag value
+            db.Entry(item).State = EntityState.Modified;
+            var result = db.SaveChanges();
+            Console.WriteLine(result == 1 ? "Softdelete successful" : "Softdelete fail");
+
+
+
+
+
+        }
+
+
+        public void delete(int id)
+        {
+            AppDbContext db = new AppDbContext();
+            var item = db.Blogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
+            db.Entry(item).State = EntityState.Deleted;
+            var result = db.SaveChanges();
+            Console.WriteLine(result == 1 ? "Delete successful" : "Delete fail");
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
 
 
     }
