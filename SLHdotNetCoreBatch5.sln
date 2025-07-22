@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36221.1 d17.14
+VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.Consoleapp", "SLHdotNetCoreBatch5.Consoleapp\SLHdotNetCoreBatch5.Consoleapp.csproj", "{72F1AAE5-8CF5-4E0A-AEC1-037382E9E3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.database", "SLHdotNetCoreBatch5.database\SLHdotNetCoreBatch5.database.csproj", "{11F9DB27-6F6A-465C-ACEE-ED3A19E94E25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{72F1AAE5-8CF5-4E0A-AEC1-037382E9E3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F1AAE5-8CF5-4E0A-AEC1-037382E9E3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F1AAE5-8CF5-4E0A-AEC1-037382E9E3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F9DB27-6F6A-465C-ACEE-ED3A19E94E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F9DB27-6F6A-465C-ACEE-ED3A19E94E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F9DB27-6F6A-465C-ACEE-ED3A19E94E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F9DB27-6F6A-465C-ACEE-ED3A19E94E25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
