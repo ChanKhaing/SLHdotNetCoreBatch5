@@ -1,0 +1,6 @@
+@SLHdotNetCoreBatch5.RestApi_HostAddress = http://localhost:5240
+
+GET {{SLHdotNetCoreBatch5.RestApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
