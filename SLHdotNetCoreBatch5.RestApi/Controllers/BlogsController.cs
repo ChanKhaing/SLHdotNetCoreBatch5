@@ -69,7 +69,12 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
             _db.Entry(item).State = EntityState.Modified;
             _db.SaveChanges();
             return Ok(item);
-        }
+        }  
+
+       
+
+
+
 
         [HttpGet("softdelte/{id}")]
         public IActionResult SoftDelete(int id)
