@@ -45,15 +45,15 @@ namespace SLHdotNetCoreBatch5.Consoleapp
         public void create(string title, string author, string content)
         {
             string query = @"INSERT INTO [dbo].[Tbl_Blog]
-           ([BlogTitle]
-           ,[BlogAuthor]
-           ,[BlogContent]
-           ,[DeleteFlag])
-     VALUES
-          ( @BlogTitle,
-           @BlogAuthor ,
-           @BlogContent
-           ,0)";
+                                       ([BlogTitle]
+                                       ,[BlogAuthor]
+                                       ,[BlogContent]
+                                       ,[DeleteFlag])
+                                 VALUES
+                                      ( @BlogTitle,
+                                       @BlogAuthor ,
+                                       @BlogContent
+                                       ,0)";
 
             //if we are not using dto just like we are not using model class
             //data transfer object we can use dynamic and it can be error on variable assign 
