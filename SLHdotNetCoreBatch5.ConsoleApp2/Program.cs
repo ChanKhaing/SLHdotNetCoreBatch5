@@ -26,6 +26,7 @@ var content = new ContentModel
 
 //serialize the object to JSON and it mean encode the object to JSON format
 //string strJson = JsonConvert.SerializeObject(content);
+
 string strjson  = content.Tojson();
 Console.WriteLine(strjson);
 //Console.ReadLine();
@@ -66,5 +67,7 @@ public static class Devcode
         string JsonFromstr = JsonConvert.SerializeObject(obj);
         return JsonFromstr;
     }
+
+    
 }
 

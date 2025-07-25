@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.RestApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.MininmalApi", "SLHdotNetCoreBatch5.MininmalApi\SLHdotNetCoreBatch5.MininmalApi.csproj", "{0271EEE2-8C04-4CAB-B6D0-332787BCAA49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.BirdsApi", "SLHdotNetCoreBatch5.BirdsApi\SLHdotNetCoreBatch5.BirdsApi.csproj", "{C9B7972A-BB6D-41EA-AA9D-2E949F4C32DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{0271EEE2-8C04-4CAB-B6D0-332787BCAA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0271EEE2-8C04-4CAB-B6D0-332787BCAA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0271EEE2-8C04-4CAB-B6D0-332787BCAA49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B7972A-BB6D-41EA-AA9D-2E949F4C32DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B7972A-BB6D-41EA-AA9D-2E949F4C32DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B7972A-BB6D-41EA-AA9D-2E949F4C32DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B7972A-BB6D-41EA-AA9D-2E949F4C32DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
