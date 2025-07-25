@@ -7,7 +7,7 @@
         //    return i.ToString();
         //}
 
-        public static void UseBlogEndpoint(this IEndpointRouteBuilder app)
+        public static void MapBlogEndpoint(this IEndpointRouteBuilder app)
         {
             app.MapGet("/blogs", () =>
             {
@@ -64,8 +64,8 @@
                 db.SaveChanges();
                 return Results.Ok(blog);
             })
-            .WithName("UpdateBlog")
-            .WithOpenApi();
+                    .WithName("UpdateBlog")
+                    .WithOpenApi();
 
             app.MapDelete("/blogs/{id}", (int id) =>
             {
@@ -86,5 +86,10 @@
             .WithName("DeleteBlog")
             .WithOpenApi();
         }
+
+
+
+
+
     }
 }

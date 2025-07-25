@@ -40,7 +40,6 @@ app.UseHttpsRedirection();
 //.WithName("GetWeatherForecast")
 //.WithOpenApi();
 
-
 //app.MapGet("/blogs", () =>
 //{
 //    AppDbContext db = new AppDbContext();
@@ -51,9 +50,9 @@ app.UseHttpsRedirection();
 //.WithName("GetBlogs")
 //.WithOpenApi();
 
-////Edit
-//app.MapGet("/blogs/{id}", (int id) => 
-//{    
+//Edit
+//app.MapGet("/blogs/{id}", (int id) =>
+//{
 
 //    AppDbContext db = new AppDbContext();
 //    var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
@@ -77,7 +76,8 @@ app.UseHttpsRedirection();
 //.WithOpenApi();
 
 
-//app.MapPut("/blogs/{id}", (int id, TblBlog blog) => {
+//app.MapPut("/blogs/{id}", (int id, TblBlog blog) =>
+//{
 //    AppDbContext db = new AppDbContext();
 //    var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
 //    if (item is null)
@@ -102,7 +102,7 @@ app.UseHttpsRedirection();
 //    var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
 //    if (item is null)
 //    {
-//        return Results.NotFound(); 
+//        return Results.NotFound();
 //    }
 //    db.Entry(item).State = EntityState.Deleted;
 //    db.SaveChanges();
@@ -118,8 +118,16 @@ app.UseHttpsRedirection();
 //    return Results.Ok(blog);
 //})
 
-app.UseBlogEndpoint();
-//app.Run();
+//app.UseBlogEndpoint();
+
+//BlogEndpoint.Test("asdf");
+//"asdf".Test(); // extension method for string
+
+
+
+
+app.MapBlogEndpoint();
+app.Run();
 
 //internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 //{
