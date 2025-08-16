@@ -13,6 +13,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 //using Microsoft.Data.SqlClient;
 
 
+
 Console.WriteLine("Hello world i am testing C# with query");
 
 
@@ -57,7 +58,11 @@ Console.WriteLine("Hello world i am testing C# with query");
 //adodotnetExample.read();
 //adodotnetExample.create();
 //adodotnetExample.edit();
-
+AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.readtest();
+//adoDotNetExample.edittest();
+//adoDotNetExample.createtest();
+adoDotNetExample.updatetest();
 
 //DapperExample dapperExample = new DapperExample();
 //dapperExample.read();
@@ -65,13 +70,13 @@ Console.WriteLine("Hello world i am testing C# with query");
 //Console.ReadKey();
 
 
-EfcoreExample efcoreExample = new EfcoreExample();
+//EfcoreExample efcoreExample = new EfcoreExample();
 //efcoreExample.read();
 //efcoreExample.create("New Blog Title", "New Author", "This is the content of the new blog.");   
 //efcoreExample.Edit(7); // Replace 1 with the actual BlogId you want to edit
 //efcoreExample.Update(7, "Updated Blog Title", "Updated Author", "This is the updated content of the blog."); // Replace 1 with the actual BlogId you want to update
 //efcoreExample.softdelete(3); // Replace 1 with the actual BlogId you want to soft delete
-efcoreExample.delete(1007);
+//efcoreExample.delete(1007);
 
 
 

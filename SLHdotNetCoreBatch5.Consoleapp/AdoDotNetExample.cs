@@ -102,6 +102,189 @@ namespace SLHdotNetCoreBatch5.Consoleapp
         }
 
 
+        public void readtest()
+        {
+
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123";
+
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            string query = @"SELECT [BlogId]
+                              ,[BlogTitle]
+                              ,[BlogAuthor]
+                              ,[BlogContent]
+                              ,[DeleteFlag]
+                          FROM [dbo].[Tbl_Blog]";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["BlogId"]);
+                Console.WriteLine(reader["BlogTitle"]);
+                Console.WriteLine(reader["BlogAuthor"]);
+                Console.WriteLine(reader["BlogContent"]);
+            }
+
+            connection.Close();
+
+
+        }
+
+        public void edittest()
+        {
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123";
+            SqlConnection connection = new SqlConnection( connectionString);
+            Console.WriteLine("Enter your id");
+            string blogid = Console.ReadLine();
+            connection.Open();
+
+            string query = @"SELECT [BlogId]
+                                ,[BlogTitle]
+                              ,[BlogAuthor]
+                              ,[BlogContent]
+                              ,[DeleteFlag]
+                          FROM [dbo].[Tbl_Blog] where BlogId = @BlogId";
+
+            SqlCommand cmd = new SqlCommand(query,connection);
+            cmd.Parameters.AddWithValue("@BlogId", blogid);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["BlogId"]);
+                Console.WriteLine(reader["BlogTitle"]);
+                Console.WriteLine(reader["BlogAuthor"]);
+                Console.WriteLine(reader["BlogContent"]);
+            }
+
+            connection.Close();
+
+        }
+
+        public void createtest() {
+
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123";
+            Console.WriteLine("Enter your BlogTitle");
+            string BlogTitle = Console.ReadLine();
+           
+
+            Console.WriteLine("Enter your BlogAuthor");
+            string BlogAuthor = Console.ReadLine();
+   
+
+            Console.WriteLine("Enter your BlogContent");
+            string BlogContent = Console.ReadLine();
+
+            SqlConnection connection = new SqlConnection (connectionString);
+            connection.Open();
+            string query = @"INSERT INTO [dbo].[Tbl_Blog]
+                           ([BlogTitle]
+                           ,[BlogAuthor]
+                           ,[BlogContent]
+                           ,[DeleteFlag])
+                     VALUES
+                          ( @BlogTitle
+                           ,@BlogAuthor
+                           ,@BlogContent
+                           ,0)";
+
+            SqlCommand cmd = new SqlCommand(query,connection);
+            cmd.Parameters.AddWithValue("@BlogTitle",BlogTitle);
+            cmd.Parameters.AddWithValue("@BlogAuthor", BlogAuthor);
+            cmd.Parameters.AddWithValue("@BlogContent", BlogContent);
+            int result = cmd.ExecuteNonQuery();
+
+            Console.WriteLine(result ==1 ? "Saving successful":"not Saving successful");
+
+            connection.Close();
+
+
+
+
+
+
+        }
+
+        public void updatetest() {
+
+            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123";
+            SqlConnection connection = new SqlConnection(connectionString);
+            Console.WriteLine("Enter your id");
+            string blogid = Console.ReadLine();
+            connection.Open();
+
+            string query = @"SELECT [BlogId]
+                                ,[BlogTitle]
+                              ,[BlogAuthor]
+                              ,[BlogContent]
+                              ,[DeleteFlag]
+                          FROM [dbo].[Tbl_Blog] where BlogId = @BlogId";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@BlogId", blogid);
+            //SqlDataReader reader = cmd.ExecuteReader();
+            //while (reader.Read())
+            //{
+            //    Console.WriteLine(reader["BlogId"]);
+            //    Console.WriteLine(reader["BlogTitle"]);
+            //    Console.WriteLine(reader["BlogAuthor"]);
+            //    Console.WriteLine(reader["BlogContent"]);
+            //}
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    Console.WriteLine("Current Blog Details:");
+                    Console.WriteLine("ID: " + reader["BlogId"]);
+                    Console.WriteLine("Title: " + reader["BlogTitle"]);
+                    Console.WriteLine("Author: " + reader["BlogAuthor"]);
+                    Console.WriteLine("Content: " + reader["BlogContent"]);
+                }
+                else
+                {
+                    Console.WriteLine("No blog found with the given ID.");
+                    return;
+                }
+            }
+
+            Console.WriteLine("Update your BlogTitle");
+            string BlogTitle = Console.ReadLine();
+
+
+            Console.WriteLine("Update your BlogAuthor");
+            string BlogAuthor = Console.ReadLine();
+
+
+            Console.WriteLine("Update your BlogContent");
+            string BlogContent = Console.ReadLine();
+
+            string query2 = @"UPDATE [dbo].[Tbl_Blog]
+           SET[BlogTitle] = @BlogTitle,
+           [BlogAuthor] = @BlogAuthor,
+           [BlogContent] = @BlogContent,
+           [DeleteFlag] = 0
+           WHERE BlogId = @Blogid";
+
+            SqlCommand cmd1 = new SqlCommand(query2, connection);
+            cmd1.Parameters.AddWithValue("@BlogId", blogid);
+            cmd1.Parameters.AddWithValue("@BlogTitle", BlogTitle);
+            cmd1.Parameters.AddWithValue("@BlogAuthor", BlogAuthor);
+            cmd1.Parameters.AddWithValue("@BlogContent", BlogContent);
+
+            int result = cmd1.ExecuteNonQuery();
+            Console.WriteLine(result== 1 ? "Updating successful":"Updating not successful");
+
+
+
+
+
+        }
+        
         public void edit() 
         {
 

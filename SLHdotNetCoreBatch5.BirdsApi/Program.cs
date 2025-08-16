@@ -39,10 +39,13 @@ var summaries = new[]
 //.WithOpenApi();
 
 app.MapGet("/birds", () =>
+
 {
     string folderpath = "Data/Birds.json";
     var jsonStr = File.ReadAllText(folderpath);
     var result = JsonConvert.DeserializeObject<Rootobject>(jsonStr)!;
+
+
     return Results.Ok(result.Tbl_Bird);
 })
     .WithName("GetBirds")
