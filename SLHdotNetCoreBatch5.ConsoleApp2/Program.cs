@@ -19,8 +19,10 @@ using System.Collections.Generic;
 
 
 EfcoreExample efcoreExample = new EfcoreExample();
-efcoreExample.readtest();
-
+//efcoreExample.readtest();
+//efcoreExample.create("blogtitle2", "blogauthor2", "blogauthor3");
+//efcoreExample.edit(2);
+efcoreExample.Update(2, "tilte2", "author2", "content2");
 //var content = new ContentModel
 //{
 //    Id = 1,

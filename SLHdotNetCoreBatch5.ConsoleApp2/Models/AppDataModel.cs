@@ -55,7 +55,7 @@ namespace SLHdotNetCoreBatch5.ConsoleApp2.Models
     {
         [Key]
         [Column("BlogId")]
-        public int BlogId { get; set; }
+        public int?BlogId { get; set; }
 
         [Column("BlogTitle")]
         public string? BlogTitle { get; set; }
