@@ -31,6 +31,11 @@ namespace SLHdotNetCoreBatch5.Consoleapp
         }
 
 
-        public DbSet<BlogEfcoreDataModel> Blogs { get; set; }
+      
+
+
+        //public DbSet<BlogEfcoreDataModel> Blogs { get; set; }
+        public DbSet<EfcoreBlogDataModel> Blogs { get; set; }
+
     }
 }
