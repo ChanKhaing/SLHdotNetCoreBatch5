@@ -6,7 +6,7 @@
         public string? Title { get; set; }
         public string? Author { get; set; }
         public string? Content  { get; set; }
-        public bool? DeleteFlag { get; set; } // Nullable to allow for default value
+        public bool DeleteFlag { get; set; } // Nullable to allow for default value
 
     }
 }

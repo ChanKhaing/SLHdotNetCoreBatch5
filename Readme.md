@@ -69,3 +69,7 @@ update tbl_blog commit
 # Today is 21.7.2025
 dotnet ef dbcontext scaffold "Server=.;Database=DotNetTrainngBatch5;User Id=sa;Password=sasa@123;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models -c AppDbContext -f
         //private readonly string _connectionString = "Data Source=.;Initial Catalog=DotNetTrainingBatch5;User ID=sa;Password=sasa@123;";
+
+
+ # Today is 8.19.2025
+we should learn adodotnet service and dapper service 
