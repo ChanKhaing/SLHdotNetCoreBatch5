@@ -13,7 +13,7 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
 
         [HttpGet]
         public IActionResult GetBlogs()
-        {   
+        {
             //AppDbContext db = new AppDbContext();
             // Simulate fetching blogs from a database or service
             var blogs = _db.TblBlogs.AsNoTracking().ToList();
@@ -27,10 +27,10 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
         public IActionResult CreateBlog(TblBlog blog)
         {
             // Simulate creating a blog post
-            blog.DeleteFlag ??= false;
+            //blog.DeleteFlag ??= false;
             _db.TblBlogs.Add(blog);
             _db.SaveChanges();
-           return Ok(blog);
+            return Ok(blog);
         }
 
         //This method is used to show the original data when you are editing your post
@@ -40,7 +40,7 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
             // Simulate fetching a blog post by ID
             //var blog = _db.TblBlogs.AsNoTracking().FirstOrDefault(b => b.BlogId == id);
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
-            if (item is null) 
+            if (item is null)
             {
                 return NotFound(new { message = $"BlogPost with ID {id} not found." });
             }
@@ -49,29 +49,32 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBlog(int id,TblBlog blog)
+        public IActionResult UpdateBlog(int id, TblBlog blog)
         {
-            var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id); 
+            var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
-              {
+            {
                 return NotFound();
             }
 
             // Keep original state unless new value is provided
-            var originalDeleteFlag = item.DeleteFlag;
+            //var originalDeleteFlag = item.DeleteFlag;
 
             item.BlogTitle = blog.BlogTitle;
             item.BlogAuthor = blog.BlogAuthor;
             item.BlogContent = blog.BlogContent;
+            
+
+
             // Update DeleteFlag only if blog.DeleteFlag is not null
-            item.DeleteFlag = blog.DeleteFlag ?? originalDeleteFlag;
+            //item.DeleteFlag = blog.DeleteFlag ?? originalDeleteFlag;
 
             _db.Entry(item).State = EntityState.Modified;
             _db.SaveChanges();
             return Ok(item);
-        }  
+        }
 
-       
+
 
 
 
@@ -88,7 +91,7 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
             _db.Entry(item).State = EntityState.Modified;
             _db.SaveChanges();
             return Ok(item);
-        
+
         }
 
 
@@ -100,7 +103,7 @@ namespace SLHdotNetCoreBatch5.RestApi.Controllers
         {
             // Simulate deleting a blog post by ID
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
-            if(item is null)            
+            if (item is null)
             {
                 return NotFound(new { message = $"BlogPost with ID {id} not found." });
             }

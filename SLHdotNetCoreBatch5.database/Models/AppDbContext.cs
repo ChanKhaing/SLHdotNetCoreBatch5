@@ -23,15 +23,30 @@ public partial class AppDbContext : DbContext
 
 
     //.net8 configuration is builtsin provided but i overwrite it here for clarity
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    if (!optionsBuilder.IsConfigured)
+    //    {
+    //        string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123;TrustServerCertificate=True;";
+    //        optionsBuilder.UseSqlServer(connectionString);
+    //    }
+
+    //}
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
+        if(!optionsBuilder.IsConfigured)
         {
-            string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123;TrustServerCertificate=True;";
-            optionsBuilder.UseSqlServer(connectionString);
+           string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123;TrustServerCertificate=True;";
+           optionsBuilder.UseSqlServer(connectionString);
         }
-
     }
+
+    
+
+
+
+
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,3 +66,5 @@ public partial class AppDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+
+
