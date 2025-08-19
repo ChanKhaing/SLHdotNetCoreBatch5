@@ -18,6 +18,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\SLHdotNetCoreBatch5.database\SLHdotNetCoreBatch5.database.csproj" />
+	  <ProjectReference Include="..\SLHdotNetCoreBatch5Test.Shared\SLHdotNetCoreBatch5Test.Shared.csproj" />
 	</ItemGroup>
 	
 	

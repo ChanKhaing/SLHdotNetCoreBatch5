@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.RestApi2", "SLHdotNetCoreBatch5.RestApi2\SLHdotNetCoreBatch5.RestApi2.csproj", "{7616383C-24CE-43A7-BCE7-1BF67F4CDCF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5Test.Shared", "SLHdotNetCoreBatch5Test.Shared\SLHdotNetCoreBatch5Test.Shared.csproj", "{ACFEF0E9-3233-4121-8CF6-BE7B693189C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{7616383C-24CE-43A7-BCE7-1BF67F4CDCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7616383C-24CE-43A7-BCE7-1BF67F4CDCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7616383C-24CE-43A7-BCE7-1BF67F4CDCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACFEF0E9-3233-4121-8CF6-BE7B693189C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACFEF0E9-3233-4121-8CF6-BE7B693189C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACFEF0E9-3233-4121-8CF6-BE7B693189C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACFEF0E9-3233-4121-8CF6-BE7B693189C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

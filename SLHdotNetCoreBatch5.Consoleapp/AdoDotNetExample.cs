@@ -36,6 +36,14 @@ namespace SLHdotNetCoreBatch5.Consoleapp
             //adapter.Fill(dt);
             //read data end******
 
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    Console.WriteLine(dr["BlogId"]);
+            //    Console.WriteLine(dr["BlogTitle"]);
+            //    Console.WriteLine(dr["BlogAuthor"]);
+            //    Console.WriteLine(dr["BlogContent"]);
+            //    //Console.WriteLine(dr["DeleteFlag"]);
+            //}
 
             ////when you are using datareader like you are in libaray and you can read whatever you want no limit book but you can't take home
             ////if you are using datareader you should take care connection don't lost but runtime fast 

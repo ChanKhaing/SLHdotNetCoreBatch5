@@ -158,7 +158,29 @@ namespace SLHdotNetCoreBatch5.Consoleapp
 
         }
 
+        public void Edit(int id)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                string query = "select * from tbl_blog where DeleteFlag = 0 and BlogId = @BlogId;";
+                var item = db.Query<BlogDataModel>(query, new BlogDataModel
+                {
+                    BlogId = id
+                }).FirstOrDefault();
 
+                //if (item == null)
+                if (item is null)
+                {
+                    Console.WriteLine("No data found.");
+                    return;
+                }
+
+                Console.WriteLine(item.BlogId);
+                Console.WriteLine(item.BlogTitle);
+                Console.WriteLine(item.BlogAuthor);
+                Console.WriteLine(item.BlogContent);
+            }
+        }
 
 
 
