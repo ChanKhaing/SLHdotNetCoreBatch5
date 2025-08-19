@@ -1,0 +1,6 @@
+@SLHdotNetCoreBatch5.MininmalApi2_HostAddress = http://localhost:5244
+
+GET {{SLHdotNetCoreBatch5.MininmalApi2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
