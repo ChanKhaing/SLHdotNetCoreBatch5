@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5Test.Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.MininmalApi2", "SLHdotNetCoreBatch5.MininmalApi2\SLHdotNetCoreBatch5.MininmalApi2.csproj", "{8A0FCC15-1353-4257-B8B6-02006D2E8FF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLHdotNetCoreBatch5.SnakeApi", "SLHdotNetCoreBatch5.SnakeApi\SLHdotNetCoreBatch5.SnakeApi.csproj", "{3644C009-26BF-445C-AFD5-9A18F3F155F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{8A0FCC15-1353-4257-B8B6-02006D2E8FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A0FCC15-1353-4257-B8B6-02006D2E8FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A0FCC15-1353-4257-B8B6-02006D2E8FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3644C009-26BF-445C-AFD5-9A18F3F155F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3644C009-26BF-445C-AFD5-9A18F3F155F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3644C009-26BF-445C-AFD5-9A18F3F155F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3644C009-26BF-445C-AFD5-9A18F3F155F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

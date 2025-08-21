@@ -74,13 +74,22 @@ Console.WriteLine("Hello world i am testing C# with query");
 
 EfcoreExample efcoreExample = new EfcoreExample();
 //efcoreExample.readtest();
-efcoreExample.read();
+//efcoreExample.read();
 //efcoreExample.create("New Blog Title", "New Author", "This is the content of the new blog.");   
 //efcoreExample.Edit(7); // Replace 1 with the actual BlogId you want to edit
 //efcoreExample.Update(7, "Updated Blog Title", "Updated Author", "This is the updated content of the blog."); // Replace 1 with the actual BlogId you want to update
 //efcoreExample.softdelete(3); // Replace 1 with the actual BlogId you want to soft delete
 //efcoreExample.delete(1007);
-Console.ReadKey();
+
+
+AdoDotnet adoDotnet = new AdoDotnet();
+//adoDotnet.Read(5);
+//adoDotnet.Read(1);
+adoDotnet.Update(4);
+
+//adoDotnet.Create("Pwint", "mawlamyine", "myat@gmail.com",true);
+//adoDotnet.Create("blogtitle", "blogauthor", "blogcontent");
+//adoDotnet.Create("blogtitle", "blogauthor", "blogcontent2", true);
 
 
 
