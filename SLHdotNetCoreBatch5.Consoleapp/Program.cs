@@ -85,7 +85,10 @@ EfcoreExample efcoreExample = new EfcoreExample();
 AdoDotnet adoDotnet = new AdoDotnet();
 //adoDotnet.Read(5);
 //adoDotnet.Read(1);
-adoDotnet.Update(4);
+//adoDotnet.Update(5,"chanchan","hpaan","chanchan@gmail.cocm");
+//adoDotnet.Delete(1013);
+adoDotnet.DeleteFlagTest(22);
+adoDotnet.DeleteFlagTest(2);
 
 //adoDotnet.Create("Pwint", "mawlamyine", "myat@gmail.com",true);
 //adoDotnet.Create("blogtitle", "blogauthor", "blogcontent");
