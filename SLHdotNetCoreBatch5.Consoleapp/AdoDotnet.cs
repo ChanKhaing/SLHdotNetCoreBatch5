@@ -52,6 +52,7 @@ namespace SLHdotNetCoreBatch5.Consoleapp
         }
 
 
+
         public void Read(int id)
         {
             string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
@@ -219,7 +220,8 @@ namespace SLHdotNetCoreBatch5.Consoleapp
             connection.Close();
         }
 
-       public void DeleteFlagTest(int id)
+        [Obsolete]
+        public void DeleteFlagTest(int id)
         {
             string connectionString = "Data Source=.;Initial Catalog=DotNetTrainngBatch5;User ID=sa;Password=sasa@123"; //
             SqlConnection sqlconnection = new SqlConnection(connectionString);

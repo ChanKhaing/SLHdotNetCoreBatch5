@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using SLHdotNetCoreBatch5.ConsoleApp3;
 using SLHdotNetCoreBatch5.database.Models;
+using SLHdotNetCoreBatch5Test.Shared;
 
 //Console.WriteLine("Hello, World!");
 //AppDbContext db = new AppDbContext();
@@ -18,40 +19,46 @@ using SLHdotNetCoreBatch5.database.Models;
 //AdoDotnetExample adodotnet = new AdoDotnetExample();
 //adodotnet.Run();
 
-var contentModel = new contentModel
-{
-    Id = 1,
-    Name = "Chan Chan",
-    title = "Title",
-    author = "Author",
-};
+//var contentModel = new contentModel
+//{
+//    Id = 1,
+//    Name = "Chan Chan",
+//    title = "Title",
+//    author = "Author",
+//};
 
-//var jsonstr = JsonConvert.SerializeObject(contentModel,Formatting.Indented);
+////var jsonstr = JsonConvert.SerializeObject(contentModel,Formatting.Indented);
 
-var jsonstr = contentModel.ToJson();
-Console.WriteLine(jsonstr);
+//var jsonstr = contentModel.ToJson();
+//Console.WriteLine(jsonstr);
 
 
-string json2 = """{ "Id": 1,"Name": "Chankhine", "title": "Title","author": "Author" }   """;
-var blog = JsonConvert.DeserializeObject<contentModel>(json2);
+//string json2 = """{ "Id": 1,"Name": "Chankhine", "title": "Title","author": "Author" }   """;
+//var blog = JsonConvert.DeserializeObject<contentModel>(json2);
 
-Console.WriteLine(blog.ToJson());
+//Console.WriteLine(blog.ToJson());
 
-public class contentModel
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string title { get; set; }
-    public  string author { get; set; }
+//public class contentModel
+//{
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public string title { get; set; }
+//    public  string author { get; set; }
 
-}
+//}
 
-public static class Extensions
-{
-    public static string ToJson(this object obj)
-    {
-     string jsonstr = JsonConvert.SerializeObject(obj, Formatting.Indented);
+//public static class Extensions
+//{
+//    public static string ToJson(this object obj)
+//    {
+//     string jsonstr = JsonConvert.SerializeObject(obj, Formatting.Indented);
 
-        return jsonstr;
-    }
-}
+//        return jsonstr;
+//    }
+//}
+
+AdoDotnetServiceOne adoDotnetServiceOne = new AdoDotnetServiceOne();
+//adoDotnetServiceOne.Read();
+adoDotnetServiceOne.Edit();
+
+Console.ReadKey();
