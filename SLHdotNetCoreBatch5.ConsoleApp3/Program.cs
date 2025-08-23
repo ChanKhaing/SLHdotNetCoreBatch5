@@ -59,6 +59,8 @@ using SLHdotNetCoreBatch5Test.Shared;
 
 AdoDotnetServiceOne adoDotnetServiceOne = new AdoDotnetServiceOne();
 //adoDotnetServiceOne.Read();
-adoDotnetServiceOne.Edit();
+//adoDotnetServiceOne.Edit();
+//adoDotnetServiceOne.Create();
+adoDotnetServiceOne.Update();
 
 Console.ReadKey();

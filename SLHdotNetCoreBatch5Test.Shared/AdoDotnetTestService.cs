@@ -12,7 +12,7 @@ namespace SLHdotNetCoreBatch5Test.Shared
     {
         private readonly string _connectionstring;
 
-        public  AdoDotnetTestService(string connectionstring)
+        public AdoDotnetTestService(string connectionstring)
         {
             _connectionstring = connectionstring;
         }
@@ -22,27 +22,56 @@ namespace SLHdotNetCoreBatch5Test.Shared
             SqlConnection connection = new SqlConnection(_connectionstring);
             connection.Open();
             SqlCommand cmd = new SqlCommand(query, connection);
-            if (sqlParameters is not  null)
+            if (sqlParameters is not null)
             {
                 foreach (var Sqlparameter in sqlParameters)
                 {
                     cmd.Parameters.AddWithValue(Sqlparameter.Name, Sqlparameter.Value);
                 }
             }
-          
+
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            
+
             connection.Close();
             return dt;
         }
+
+
+
+
+        public int Execute(string query, params SqlParameterModel[] sqlParameters) 
+        {
+            SqlConnection connection = new SqlConnection(_connectionstring);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            if (sqlParameters is not null)
+            {
+                foreach (var Sqlparameter in sqlParameters)
+                {
+                    cmd.Parameters.AddWithValue(Sqlparameter.Name, Sqlparameter.Value);
+                }
+            }
+            int result = cmd.ExecuteNonQuery();
+
+
+            connection.Close();
+            return result;
+
+        }
+
+
+
+
+
     }
+
 
 
     public class SqlParameterModel
     {
         public string Name { get; set; }
-        public string Value { get; set; }
+        public object Value { get; set; }
     }
 }
